@@ -17,14 +17,14 @@ class ProxyHandler(BaseHTTPRequestHandler):
         data = self.rfile.read(data_length) if data_length > 0 else b''
 
         if b"Shounak" in data:
-            print("Request contains 'Shounak'")
+            print("Request contains 'Confidential Items'")
             self.send_response(200)
             self.send_header('Content-Type', 'text/plain')
             self.end_headers()
-            self.wfile.write("Contains Shounak!".encode())
+            self.wfile.write("Contains Contains Confidential items!".encode())
             return
         
-        print("Request does not contain 'Shounak'. Prompting for authentication.")
+        print("Request does not contain 'Confidential Things'. Prompting for authentication.")
         auth_header = self.headers.get('Authorization')
         if auth_header:
             print("Authorization header:", auth_header)
